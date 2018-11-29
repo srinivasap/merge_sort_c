@@ -199,5 +199,12 @@ int main(int argc, char * argv[]) {
   printArray(0, arrlen);
   printf("\n");
 
+  // test start
+  unsigned long time_spent = 18446744073709551615;
+  printf("\n\nvalue of time_spent %lu", time_spent);
+  printf("\nvalue of time_spent >> 32 %lu", time_spent >> 32);
+  printf("\nvalue of time_spent << 32 %lu", time_spent << 32);
+  // test end
+
   return 0;
 }
