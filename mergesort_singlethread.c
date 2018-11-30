@@ -32,8 +32,9 @@ int init_array_from_file(int argc, char * argv[]);
  * @param high end of right subarray
  */
 void merge(int low, int high) {
-  printf("\nmerge(%d, %d) unsorted: ", low, high);
-  printArray(low, high + 1);
+  //printf("\nmerge(%d, %d) unsorted: ", low, high);
+  printf("\nmerge(%d, %d) ", low, high);
+  //printArray(low, high + 1);
 
   int mid = (low + high) / 2;
   int left = low;
@@ -62,8 +63,8 @@ void merge(int low, int high) {
   for (i = 0; i < (high - low + 1); i++) {
     ia[low + i] = b[i];
   }
-  printf("\nmerge(%d, %d) sorted: ", low, high);
-  printArray(low, high + 1);
+  //printf("\nmerge(%d, %d) sorted: ", low, high);
+  //printArray(low, high + 1);
 }
 
 /**
@@ -76,8 +77,8 @@ void * merge_sort(void * a) {
     return 0;
   
   int low = pa-> low, high = pa -> high, mid = (low + high) / 2;
-  printf("\nmerge_sort (%d, %d) : ", low, high);
-  printArray(low, high + 1);
+  printf("\nmerge_sort (%d, %d)", low, high);
+  //printArray(low, high + 1);
 
   ArrayBoundsInfo aIndex[2];
   aIndex[0].low = low;
@@ -198,13 +199,7 @@ int main(int argc, char * argv[]) {
   printf("\n\nsingle-thread mergesort took %f milliseconds to sort array of length %d: ", time_taken * 1000, arrlen);
   printArray(0, arrlen);
   printf("\n");
-
-  // test start
-  unsigned long time_spent = 18446744073709551615;
-  printf("\n\nvalue of time_spent %lu", time_spent);
-  printf("\nvalue of time_spent >> 32 %lu", time_spent >> 32);
-  printf("\nvalue of time_spent << 32 %lu", time_spent << 32);
-  // test end
-
+  // clear mem allocated before exiting
+  free(ia);
   return 0;
 }

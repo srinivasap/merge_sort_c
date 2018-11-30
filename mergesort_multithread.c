@@ -161,6 +161,7 @@ int init_array_from_file(int argc, char * argv[]) {
 
   // allocate memory to input array (ia)
   ia = malloc(sizeof(int) * icount);
+  //ia = malloc(sizeof(int) * 1000);
   i = 0;
 
   char * snumber;
@@ -212,6 +213,9 @@ int main(int argc, char * argv[]) {
   printf("\n\nMulti-thread mergesort took %f milliseconds to sort array of length %d : ", time_taken * 1000, arrlen);
   printArray(0, arrlen);
   printf("\n");
+
+  // clear mem allocated before exiting
+  free(ia);
 
   return 0;
 }
